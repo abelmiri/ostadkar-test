@@ -96,7 +96,6 @@ export default class View extends PureComponent
         }
     }
 
-
     render()
     {
         const {views} = this.state

@@ -15,7 +15,7 @@ class App extends Component
 
     handleChange(text)
     {
-        this.setState({...this.state, string: text.toLowerCase()})
+        this.setState({...this.state, string: text.toLowerCase().trim()})
     }
 
     render()
@@ -31,7 +31,7 @@ class App extends Component
                         <input onChange={(e) => this.handleChange(e.target.value)}/>
                     </div>
                     <div className="board">
-                        <div style={{marginTop:"10px"}}>Output</div>
+                        <div style={{marginTop: "10px"}}>Output</div>
                         <hr/>
                         <View string={string}/>
                     </div>

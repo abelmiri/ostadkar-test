@@ -1,0 +1,35 @@
+$scroll-back-color: #ececec;
+$scroll-color: #c4c4c4;
+$scroll-hover-color: #b4b4b4;
+$back-color: #ececec;
+
+body {
+  margin: 0;
+  font-family: "IRANSans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: $scroll-back-color;
+}
+
+::-webkit-scrollbar-track {
+  background: $scroll-back-color;
+  margin: 5px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $scroll-color;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $scroll-hover-color;
+}

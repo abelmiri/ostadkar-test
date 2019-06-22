@@ -99,14 +99,16 @@ export default class View extends PureComponent
     render()
     {
         const {views} = this.state
+        const {isOpen} = this.props
         return (
-            <React.Fragment>
-                {views.map((view, index) => this.handleViews(view, index))}
-            </React.Fragment>
+            <div className="generator-container">
+                {isOpen && views.map((view, index) => this.handleViews(view, index))}
+            </div>
         )
     }
 }
 
 View.propTypes = {
     string: PropTypes.string.isRequired,
+    isOpen: PropTypes.bool.isRequired,
 }

@@ -1,6 +1,7 @@
 {
   "name": "ostadkar-test",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": "@abelmiri",
   "private": true,
   "dependencies": {
     "node-sass": "^4.12.0",

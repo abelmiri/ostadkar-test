@@ -3,6 +3,9 @@ $board-color: #f5f5f5;
 $color: #252525;
 $link-color: #404040;
 $border-color: #757575;
+$short-animation-duration: .25s;
+$animation-duration: .75s;
+
 
 .App {
   text-align: center;
@@ -19,15 +22,32 @@ $border-color: #757575;
   height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-evenly;
   font-size: calc(3px + 2vmin);
   color: $color;
   width: 100%;
 }
 
+.input-side {
+  display: flex;
+  align-items: center;
+  height: 85vh;
+}
+
 .App-link {
   color: $link-color;
+}
+
+.hr-active {
+  margin-top: 10px;
+  transition-Duration: $short-animation-duration;
+}
+
+.hr-inactive {
+  margin-top: 0;
+  transition-Duration: $short-animation-duration;
+  opacity: 0;
 }
 
 input {
@@ -51,10 +71,63 @@ input {
 .board {
   height: 90vh;
   width: 45vw;
+  position: relative;
   background-color: $board-color;
-  overflow: auto;
+  overflow: hidden;
   text-align: center;
   border-radius: 5px;
+  transition-duration: $short-animation-duration;
+  margin-top: 5vh;
+  animation: dropDown $animation-duration ease;
+  -webkit-animation: dropDown $animation-duration ease;
+}
+
+.board-closed {
+  height: 9vh;
+  width: 45vw;
+  position: relative;
+  background-color: $board-color;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 5px;
+  transition-duration: $short-animation-duration;
+  margin-top: 5vh;
+  animation: climbUp $animation-duration ease;
+  -webkit-animation: climbUp $animation-duration ease;
+}
+
+.drop-down {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15px;
+  left: 40%;
+  right: 40%;
+  bottom: 0;
+  height: 35px;
+  opacity: .5;
+  cursor: pointer;
+  background-color: #d0d0d0;
+  transition-duration: $short-animation-duration;
+  border-radius: 7px 7px 0 0;
+
+  &:hover {
+    opacity: .85;
+    transition-duration: $short-animation-duration;
+  }
+
+  .drop-down-svg {
+    fill: $border-color;
+    width: 20px;
+  }
+}
+
+
+.generator-container {
+  height: 92%;
+  overflow: auto;
 }
 
 .xl {
@@ -62,7 +135,7 @@ input {
   width: 99%;
   background-color: white;
   border: 1px dashed $color;
-  margin: 10px .5%;
+  margin: .5% .5%;
 }
 
 .l {
@@ -70,14 +143,64 @@ input {
   width: 99%;
   background-color: white;
   border: 1px dashed $color;
-  margin: 10px .5%;
+  margin: .5% .5%;
 }
 
 .sm {
   height: 19.5vh;
-  width: 48.76%;
+  width: 49%;
   background-color: white;
   border: 1px dashed $color;
-  margin: 10px .5%;
+  margin: .5% .5%;
   display: inline-block;
+
+  &:nth-child(odd) {
+    margin-left: .1%;
+  }
+
+  &:nth-child(even) {
+    margin-right: .1%;
+  }
+}
+
+@keyframes dropDown {
+  from {
+    opacity: .8;
+    height: 9vh;
+  }
+  to {
+    opacity: 1;
+    height: 90vh;
+  }
+}
+
+@-webkit-keyframes dropDown {
+  from {
+    opacity: .8;
+    height: 9vh;
+  }
+  to {
+    opacity: 1;
+    height: 90vh;
+  }
+}
+
+@keyframes climbUp {
+  from {
+    opacity: 1;
+    height: 90vh;
+  }
+  to {
+    height: 9vh;
+  }
+}
+
+@-webkit-keyframes climbUp {
+  from {
+    opacity: 1;
+    height: 90vh;
+  }
+  to {
+    height: 9vh;
+  }
 }
